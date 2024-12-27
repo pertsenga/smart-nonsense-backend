@@ -1,10 +1,10 @@
-import express from "express";
-const PORT = 8000;
+import express from 'express'
+import usersRouter from './routes/Users'
 
-const app = express();
+const PORT = process.env.PORT || 8000
 
-app.get('/', (_req, res) => {
-  res.send('HELLO WORLD')
-});
+const app = express()
+
+app.use('/api/users', usersRouter)
 
 app.listen(PORT, () => console.log(`listening on port ${PORT}`))
